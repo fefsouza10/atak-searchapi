@@ -3,8 +3,10 @@ import {
   Get,
   HttpCode,
   Query,
+  UseGuards,
   ValidationPipe,
 } from '@nestjs/common';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { SearchDTO } from './dto/search.dto';
 import { SearchService } from './search.service';
 
@@ -12,6 +14,7 @@ import { SearchService } from './search.service';
 export class SearchController {
   constructor(private readonly searchService: SearchService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Get('puppeteer')
   @HttpCode(200)
   async getSearchResultsWithPuppeteer(
@@ -27,6 +30,7 @@ export class SearchController {
     return this.searchService.getSearchResultshWithPuppeteer(searchDTO);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get('cheerio')
   @HttpCode(200)
   async getSearchResultsWithCheerio(
