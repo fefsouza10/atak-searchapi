@@ -12,7 +12,7 @@ import { SearchService } from './search.service';
 export class SearchController {
   constructor(private readonly searchService: SearchService) {}
 
-  @Get()
+  @Get('puppeteer')
   @HttpCode(200)
   async getSearchResultsWithPuppeteer(
     @Query(
@@ -27,7 +27,7 @@ export class SearchController {
     return this.searchService.getSearchResultshWithPuppeteer(searchDTO);
   }
 
-  @Get()
+  @Get('cheerio')
   @HttpCode(200)
   async getSearchResultsWithCheerio(
     @Query(
