@@ -1,4 +1,4 @@
-## Atak SearchApi
+# Atak SearchApi
 
 RestAPI desenvolvida como parte do teste realizado para a empresa Atak Sistemas.
 
