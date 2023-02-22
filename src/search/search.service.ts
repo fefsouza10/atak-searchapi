@@ -30,10 +30,9 @@ export class SearchService {
         (els) =>
           els.map((e) => ({
             title: e.firstChild?.firstChild?.firstChild?.textContent,
-            link: e.lastChild?.firstChild?.textContent?.replaceAll(
-              /( › )/g,
-              '/',
-            ),
+            link:
+              'https://' +
+              e.lastChild?.firstChild?.textContent?.replaceAll(/( › )/g, '/'),
           })),
       );
 
